@@ -22,7 +22,7 @@ public class register extends AppCompatActivity {
         pass1_txt = (TextView) findViewById(R.id.pass1_txt);
         pass2_txt= (TextView) findViewById(R.id.pass2_txt);
         mail_txt  = (TextView) findViewById(R.id.mail_txt);
-           = (TextView) findViewById(R.id.);
+        phone_txt   = (TextView) findViewById(R.id.phone_txt);
 
 
 
