@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "634508882645",
+    "firebase_url": "https://login-7115f.firebaseio.com",
+    "project_id": "login-7115f",
+    "storage_bucket": "login-7115f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:634508882645:android:8bfe842d38b0b7431ca85c",
+        "android_client_info": {
+          "package_name": "com.vidu.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "634508882645-50pvad4nkkma06svdal9786kijvevgq9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDoOBa-2kedn-x38T4_mw-GNtx-ogKST6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "634508882645-50pvad4nkkma06svdal9786kijvevgq9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
