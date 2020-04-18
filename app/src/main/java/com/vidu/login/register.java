@@ -1,10 +1,18 @@
 package com.vidu.login;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class register extends AppCompatActivity {
     Button submit_btn , clear_btn , back_btn;
@@ -14,17 +22,100 @@ public class register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        submit_btn = (Button) findViewById(R.id.submit_btn);
-        clear_btn  = (Button) findViewById(R.id.clear_btn);
-        back_btn   = (Button) findViewById(R.id.back__btn);
-        name_txt   = (TextView) findViewById(R.id.name_txt);
-        user_txt  = (TextView) findViewById(R.id.user_txt);
-        pass1_txt = (TextView) findViewById(R.id.pass1_txt);
-        pass2_txt= (TextView) findViewById(R.id.pass2_txt);
-        mail_txt  = (TextView) findViewById(R.id.mail_txt);
-        phone_txt   = (TextView) findViewById(R.id.phone_txt);
+        submit_btn = (Button)   findViewById(R.id.submit_btn);
+        clear_btn  = (Button)   findViewById(R.id.clear_btn );
+        back_btn   = (Button)   findViewById(R.id.back__btn );
+        name_txt   = (TextView) findViewById(R.id.name_txt  );
+        user_txt   = (TextView) findViewById(R.id.user_txt  );
+        pass1_txt  = (TextView) findViewById(R.id.pass1_txt );
+        pass2_txt  = (TextView) findViewById(R.id.pass2_txt );
+        mail_txt   = (TextView) findViewById(R.id.mail_txt  );
+        phone_txt  = (TextView) findViewById(R.id.phone_txt );
+
+        submit_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
 
+
+                String pass1 = pass1_txt.getText().toString().trim();
+                String pass2 = pass2_txt.getText().toString().trim();
+                String name = name_txt.getText().toString().trim();
+                String user = user_txt.getText().toString().trim();
+                String email= mail_txt.getText().toString().trim();
+                String phone = phone_txt.getText().toString().trim();
+                member mem = new member();
+                DatabaseReference reff = FirebaseDatabase.getInstance().getReference().child("member");
+
+                DatabaseReference.CompletionListener complete = new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                        if(databaseError != null)
+                        {
+                            Toast.makeText(register.this, "register failed", Toast.LENGTH_SHORT).show();
+                        }
+                        else
+                        {
+                            Toast.makeText(register.this, "registration succesful", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                };
+
+                if(name.equals("") || email.equals("") || phone.equals("")) {
+                    if (name.equals(""))
+                    {
+                        Toast.makeText(register.this, "enter the name", Toast.LENGTH_SHORT).show();
+                    }
+                    else if (email.equals(""))
+                    {
+                        Toast.makeText(register.this, "enter the email address", Toast.LENGTH_SHORT).show();
+                    }
+                    else if(phone.equals(""))
+                    {
+                        Toast.makeText(register.this, "enter the phone number", Toast.LENGTH_SHORT).show();
+                    }
+
+
+                }
+                else if( user.equals("")  )
+                {
+                    Toast.makeText(register.this, "enter username", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+                else if(pass1.equals("") ||pass2.equals("") )
+                {
+                    Toast.makeText(register.this, "enter passsword", Toast.LENGTH_SHORT).show();
+                }
+
+
+                else  if( ! pass1.equals(pass2)) {
+                    Toast.makeText(register.this, "both passsword does not match", Toast.LENGTH_SHORT).show();
+                }
+
+
+
+
+                else if(  )
+                {
+
+                }
+
+                else
+                    {
+
+                        mem.setName(name);
+                        mem.setEmail(email);
+                        mem.setNum(phone);
+                        mem.setUsername(user);
+                        mem.setPassword(pass1);
+                        reff.child(user).setValue(mem ,complete);
+
+
+                    }
+            }
+        });
 
 
 

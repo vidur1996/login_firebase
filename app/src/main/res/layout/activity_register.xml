@@ -28,7 +28,7 @@
         android:layout_height="45dp"
         android:background="@color/bl"
         android:ems="10"
-        android:hint="name"
+        android:hint="  name"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

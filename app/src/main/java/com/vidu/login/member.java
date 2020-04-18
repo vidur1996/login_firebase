@@ -5,7 +5,7 @@ public class member {
     String username;
     String name;
     String  email;
-    Integer num;
+    String num;
     String password;
 
     public member()
@@ -27,7 +27,7 @@ public class member {
         return username;
     }
 
-    public void setUsername()
+    public void setUsername(String username)
     {
         this.username = username;
 
@@ -42,11 +42,11 @@ public class member {
         this.password = password;
     }
 
-    public Integer getNum() {
+    public String getNum() {
         return num;
     }
 
-    public void setNum(Integer num) {
+    public void setNum(String num) {
         this.num = num;
     }
 
