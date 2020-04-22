@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -31,6 +32,32 @@ public class register extends AppCompatActivity {
         pass2_txt  = (TextView) findViewById(R.id.pass2_txt );
         mail_txt   = (TextView) findViewById(R.id.mail_txt  );
         phone_txt  = (TextView) findViewById(R.id.phone_txt );
+
+
+        clear_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pass1_txt.setText("");
+                pass2_txt.setText("");
+                name_txt.setText("");
+                user_txt.setText("");
+                mail_txt.setText("");
+                phone_txt.setText("");
+
+
+            }
+        });
+
+        back_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent it = new Intent(getApplicationContext(),MainActivity.class);
+                startActivity(it);
+
+
+            }
+        });
+
 
         submit_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,10 +124,8 @@ public class register extends AppCompatActivity {
 
 
 
-                else if(  )
-                {
 
-                }
+
 
                 else
                     {
